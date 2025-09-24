@@ -8,5 +8,24 @@
 <body>
     <h1>HELLO Day1 PAGE
     </h1>
+
+    <input id="input-name" />
+    <button id="btn-test"> 테스트</button>
+
+
+    <script>
+        console.log("hello")
+        console.log(202258035)
+        console.log("kim soungwoo")
+
+        var btntest = document.getElementById("btn-test")
+        var inputName = document.getElementById("input-name")
+
+        btntest.addEventListener('click',()=> {
+
+          console.log(" 안녕하세요 " +(inputName.value) + "님")
+        })
+    </script>
+
 </body>
 </html>
