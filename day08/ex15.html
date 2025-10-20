@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+</head>
+<body>
+     <h1 id="counter-output">counter : 0</h1>
+    <button id="btn-inc"> Inc </button>
+
+    <script>
+        var counterOutput = document.getElementById("counter-output")
+        var btnInc = document.getElementById("btn-inc");
+        var counter = 0 
+        btnInc.addEventListener('click', () => {
+            console.log('click test ' + counter);
+            counter = counter + 1;
+            counterOutput.innerText = "counter : " + counter;
+        });
+
+    </script>
+</body>
+<button id="btn-dc"> Dc </button>
+<script>
+    var counterOutput = document.getElementById("counter-output")
+    var btnDc = document.getElementById("btn-dc");
+    var counter = 0
+    btnDc.addEventListener('click', () => {
+        console.log('click test ' + counter);
+        counter = counter - 1;
+        counterOutput.innerText = "counter : " + counter;
+        
+    })
+    </script>
+    <body>
+        <button id="btn-re"> Reset</button>
+        <script>
+            var counterOutput = document.getElementById("counter-output")
+            var btnRe = document.getElementById("btn-re");
+            var counter = 0
+            btnRe.addEventListener('click', () => {
+                console.log('click test ' + counter);
+                counter = 0;
+                counterOutput.innerText = "counter : " + counter;
+                
+            })
+        </script>
+    </body>
+
+</html>
