@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+            body {
+                margin : 0px;
+                background-color: black;
+            }
+        .box {
+            width : 256px;
+            height : 32px;
+            background-color: blue;
+            color : white;
+            margin : 8px;
+        }
+        .type-1 {
+            overflow-wrap: normal;
+        }
+        .type-2 {
+            overflow-wrap: break-word;
+        }
+        .type-3 {
+            overflow-wrap: anywhere;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <div class="box type-1"> abcdefghijklmnopqrstuvwxyz
+        <div class="box type-2"> abcdefghijklmnopqrstuvwxyz</div>
+        <div class="box type-3"> abcdefghijklmnopqrstuvwxyz</div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
