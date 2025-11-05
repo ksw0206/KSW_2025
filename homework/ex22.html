@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 지역별 날씨 </title>
+</head>
+<body>
+     <div class="weather-app">
+    <h1>실시간 지역별 날씨</h1>
+    <input type="text" id="cityInput" placeholder="도시명을 입력하세요" />
+    <button id="getWeatherBtn">날씨 조회</button>
+    <div id="weatherResult" class="weather-result"></div>
+</div>
+ </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #6dd5fa, #2980b9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.weather-app {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  padding: 20px 30px;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+}
+input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #999;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #2980b9;
+}
+
+.weather-result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+</style>
+<script>
+    const apiKey = '5a17fe9418ffceaaa059cb7e7ef3c000';
+
+const getWeatherBtn = document.getElementById('getWeatherBtn');
+const cityInput = document.getElementById('cityInput');
+const weatherResult = document.getElementById('weatherResult');
+
+getWeatherBtn.addEventListener('click', () => {
+  const city = cityInput.value.trim();
+  if (city === '') {
+    weatherResult.innerHTML = '도시명을 입력해주세요.';
+    return;
+  }
+  fetchWeather(city);
+});
+
+function fetchWeather(city) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric&lang=kr`;
+  
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('도시를 찾을 수 없습니다.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayWeather(data);
+    })
+    .catch(error => {
+      weatherResult.innerHTML = error.message;
+    });
+}
+
+function displayWeather(data) {
+  const { name, main, weather, wind } = data;
+  weatherResult.innerHTML = `
+    <h2>${name}의 현재 날씨</h2>
+    <p>날씨: ${weather[0].description}</p>
+    <p>온도: ${main.temp}°C</p>
+    <p>습도: ${main.humidity}%</p>
+    <p>풍속: ${wind.speed}m/s</p>
+  `;
+}
+</script>
