@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(0, 153, 255);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+     background-size: cover;
+     background-position: center;
+}
+/* 맑음 */
+body.sunny {
+  background-image: url("img/sunny.jpg");
+}
+
+/* 비 */
+body.rainy {
+  background-image: url("img/rainy.jpg");
+}
+
+/* 눈 */
+body.snowy {
+  background-image: url("img/snowy.jpg");
+}
+
+/* 흐림 */
+body.cloudy {
+  background-image: url("img/cloudy.jpg");
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.25); /* 살짝 어둡게만 */
+  color: white;
+  text-align: center;
+  padding: 26px 0 13px 0;
+  font-size: 2.2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);            
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weather-app {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 22px 34px;
+    width: 320px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: center;
+}
+input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    color: rgb(240, 229, 229);
+    cursor: pointer;
+}
+button:hover {
+    background-color: #257db8;
+}
+.weather-result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+footer {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 15px;
+  backdrop-filter: blur(4px);
+}
+
