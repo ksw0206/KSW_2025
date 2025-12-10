@@ -1,0 +1,12 @@
+body { 
+    margin : 0px;
+    height : 100vh;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+.center {
+    text-align : center;
+    font-size : 40px;
+    font-weight : bold;
+}
